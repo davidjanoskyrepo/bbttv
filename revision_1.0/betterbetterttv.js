@@ -16,11 +16,11 @@ function processFilter(node) {
     if (node.hasAttribute("data-a-target")) {
         if (node.getAttribute("data-a-target") == "chat-line-message") {
             // Do things with a chat here
-            // Get all the descendants of type chat message text
-            var divs_with_text = [...node.querySelectorAll("[data-a-target='chat-message-text']")];
-            for (var chat of divs_with_text) {
-                // Go through all text fragments
-                for (const [key, value] of Object.entries(emotes)) {
+            for (const [key, value] of Object.entries(emotes)) {
+                // Get all the descendants of type chat message text
+                var divs_with_text = [...node.querySelectorAll("[data-a-target='chat-message-text']")];
+                for (var chat of divs_with_text) {
+                    // Go through all text fragments
                     // Split on this emote key
                     split = chat.innerText.split(key);
                     chat.innerText = split[0] + ' ';
